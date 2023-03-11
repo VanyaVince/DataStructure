@@ -16,61 +16,42 @@ namespace LinearDataStructure.Arrays
         {
             if (array.Length == count)
             {
-                var arrayCopy = new int[count * 2];
+                var arrayToCopy = new int[count * 2];
 
-                for (int i = 0; i < array.Length; i++)
-                    arrayCopy[i] = array[i];
+                for (int i = 0; i < count; i++)
+                    arrayToCopy[i] = array[i];
 
-                array = arrayCopy;
+                array = arrayToCopy;
             }
 
             array[count++] = value;
         }
 
-        public void RemoveAt(int indexToRemove)
+        public void RemoveAt(int index)
         {
-            if (indexToRemove > array.Length)
-                throw new ArgumentOutOfRangeException();
+            if (index >= count || index < 0)
+                throw new ArgumentOutOfRangeException("index");
 
-            for (int i = indexToRemove; i < count; i++)
+            for (int i = index; i < count; i++)
                 array[i] = array[i + 1];
-           
+
             count--;
-
-            //var arrayToCopy = new int[array.Length - 1];
-            //var indexOffset = 0;
-
-            //for (int i = 0; i < arrayToCopy.Length; i++)
-            //{
-            //    if (i == indexToRemove)
-            //    {
-            //        indexOffset = 1;
-            //    }
-
-            //    arrayToCopy[i] = array[i + indexOffset];
-            //}
-
-            //array = arrayToCopy;
         }
 
         public int IndexOf(int number)
         {
-            int indexToLookUp = -1;
-
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 0; i < count; i++)
             {
                 if (array[i] == number)
-                {
-                    indexToLookUp = i;
-                }
+                    return i;
             }
 
-            return indexToLookUp;
+            return -1;
         }
 
         public void Print()
         {
-            for (int i = 0; i < count; i++)
+            for(int i = 0; i < count; i++)
                 Console.WriteLine(array[i]);
         }
     }

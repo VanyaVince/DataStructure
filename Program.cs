@@ -11,7 +11,9 @@ public class Program
         numbers.Insert(20);
         numbers.Insert(30);
         numbers.Insert(40);
-        numbers.RemoveAt(0);
-        numbers.Print();
+        numbers.Insert(40);
+        Console.WriteLine(numbers.IndexOf(40));
+        //numbers.RemoveAt(2);
+        //numbers.Print();
     }
 }
