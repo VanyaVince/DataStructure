@@ -14,15 +14,7 @@ namespace LinearDataStructure.Arrays
 
         public void Insert(int value)
         {
-            if (array.Length == count)
-            {
-                var arrayToCopy = new int[count * 2];
-
-                for (int i = 0; i < count; i++)
-                    arrayToCopy[i] = array[i];
-
-                array = arrayToCopy;
-            }
+            ResizeIfRequired();
 
             array[count++] = value;
         }
@@ -30,7 +22,7 @@ namespace LinearDataStructure.Arrays
         public void RemoveAt(int index)
         {
             if (index >= count || index < 0)
-                throw new ArgumentOutOfRangeException("index");
+                throw new ArgumentOutOfRangeException();
 
             for (int i = index; i < count; i++)
                 array[i] = array[i + 1];
@@ -38,13 +30,25 @@ namespace LinearDataStructure.Arrays
             count--;
         }
 
+        public void InsertAt(int number, int index)
+        {
+            if (index >= count || index < 0)
+                throw new ArgumentOutOfRangeException();
+
+            ResizeIfRequired();
+
+            for (int i = count - 1; i >= index; i--)
+                array[i + 1] = array[i];
+
+            array[index] = number;
+            count++;
+        }
+
         public int IndexOf(int number)
         {
             for (int i = 0; i < count; i++)
-            {
                 if (array[i] == number)
                     return i;
-            }
 
             return -1;
         }
@@ -53,6 +57,19 @@ namespace LinearDataStructure.Arrays
         {
             for(int i = 0; i < count; i++)
                 Console.WriteLine(array[i]);
+        }
+
+        private void ResizeIfRequired()
+        {
+            if(count == array.Length)
+            {
+                var arrayToCopy = new int[count * 2];
+
+                for (int i = 0; i < count; i++)
+                    arrayToCopy[i] = array[i];
+
+                array = arrayToCopy;
+            }
         }
     }
 }

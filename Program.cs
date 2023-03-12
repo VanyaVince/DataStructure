@@ -10,10 +10,8 @@ public class Program
         numbers.Insert(10);
         numbers.Insert(20);
         numbers.Insert(30);
-        numbers.Insert(40);
-        numbers.Insert(40);
-        Console.WriteLine(numbers.IndexOf(40));
-        //numbers.RemoveAt(2);
-        //numbers.Print();
+        numbers.InsertAt(5, 1);
+        numbers.RemoveAt(1);
+        numbers.Print();
     }
 }
