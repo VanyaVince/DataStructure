@@ -53,6 +53,40 @@ namespace LinearDataStructure.Arrays
             return -1;
         }
 
+        public int Max()
+        {
+            var max = 0;
+
+            foreach(int item in array)
+                if(item > max)
+                    max = item;
+
+            return max;
+        }
+
+        public ArrayClass Intersect(ArrayClass other)
+        {
+            var commonItems = new ArrayClass(count - 1);
+
+            foreach(int item in array)
+                if (other.IndexOf(item) >= 0)
+                    commonItems.Insert(item);
+
+            return commonItems;
+        }
+
+        public void Revert()
+        {
+            var size = count - 1;
+
+            for (int i = 0; i <= size / 2; i++)
+            {
+                var buffer = array[i];
+                array[i] = array[size - i];
+                array[size - i] = buffer;
+            }
+        }
+
         public void Print()
         {
             for(int i = 0; i < count; i++)
