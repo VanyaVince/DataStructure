@@ -1,9 +1,13 @@
 ﻿using LinearDataStructure.Arrays;
+using LinearDataStructure.LinkedList;
+//using LinearDataStructure.LinkedList;
 
 public class Program
 {
     public static void Main(string[] args)
     {
+        /*
+        Arrays
         var firstNumbers = new ArrayClass(3);
         var secondNumbers = new ArrayClass(4);
 
@@ -19,5 +23,13 @@ public class Program
         secondNumbers.Insert(280);
         secondNumbers.Revert();
         secondNumbers.Print();
+         */
+
+        var list = new LinkedList<int>();
+
+        list.AddLast(10);
+        list.AddLast(20);
+        list.AddLast(30);
+
     }
 }
