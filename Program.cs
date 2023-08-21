@@ -27,9 +27,12 @@ public class Program
 
         var list = new LinkedList<int>();
 
+        list.AddFirst(1);
         list.AddLast(10);
+        list.AddFirst(2);
         list.AddLast(20);
         list.AddLast(30);
+        list.AddFirst(3);
 
     }
 }

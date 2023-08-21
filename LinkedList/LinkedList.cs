@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,15 +17,31 @@ namespace LinearDataStructure.LinkedList
         {
             var node = new Node<T>(value);
 
-            if (first == null)
-            {
+            if (IsEmpty())
                 first = last = node;
-            }
             else
             {
                 last.Next = node;
                 last = node;
             }
+        }
+
+        public void AddFirst(T value)
+        {
+            var node = new Node<T>(value);
+
+            if(IsEmpty())
+                first = last = node;
+            else
+            {
+                node.Next = first;
+                first = node;
+            }
+        }
+
+        private bool IsEmpty()
+        {
+            return first == null;
         }
 
         private class Node<T>
