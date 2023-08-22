@@ -39,6 +39,23 @@ namespace LinearDataStructure.LinkedList
             }
         }
 
+        public int IndexOf(T value)
+        {
+            var nodeToGetThrough = first;
+            var counter = 0;
+
+            while (nodeToGetThrough != null)
+            {
+                if (nodeToGetThrough.Value.Equals(value))
+                    return counter;
+
+                nodeToGetThrough = nodeToGetThrough.Next;
+                counter++;
+            }
+
+            return -1;
+        }
+
         private bool IsEmpty()
         {
             return first == null;

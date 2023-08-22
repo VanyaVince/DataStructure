@@ -1,4 +1,5 @@
-﻿using LinearDataStructure.Arrays;
+﻿using System;
+using LinearDataStructure.Arrays;
 using LinearDataStructure.LinkedList;
 //using LinearDataStructure.LinkedList;
 
@@ -34,5 +35,9 @@ public class Program
         list.AddLast(30);
         list.AddFirst(3);
 
+        Console.WriteLine(list.IndexOf(30));
+        Console.WriteLine(list.IndexOf(1));
+        Console.WriteLine(list.IndexOf(3));
+        Console.WriteLine(list.IndexOf(34));
     }
 }
