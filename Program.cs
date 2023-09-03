@@ -35,9 +35,9 @@ public class Program
         list.AddLast(30);
         list.AddFirst(3);
 
-        Console.WriteLine(list.IndexOf(30));
-        Console.WriteLine(list.IndexOf(1));
-        Console.WriteLine(list.IndexOf(3));
-        Console.WriteLine(list.IndexOf(34));
+        Console.WriteLine(list.Contains(30));
+        Console.WriteLine(list.Contains(1));
+        Console.WriteLine(list.Contains(3));
+        Console.WriteLine(list.Contains(34));
     }
 }

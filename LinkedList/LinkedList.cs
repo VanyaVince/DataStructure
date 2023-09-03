@@ -41,20 +41,22 @@ namespace LinearDataStructure.LinkedList
 
         public int IndexOf(T value)
         {
-            var nodeToGetThrough = first;
+            var current = first;
             var counter = 0;
 
-            while (nodeToGetThrough != null)
+            while (current != null)
             {
-                if (nodeToGetThrough.Value.Equals(value))
+                if (current.Value.Equals(value))
                     return counter;
 
-                nodeToGetThrough = nodeToGetThrough.Next;
+                current = current.Next;
                 counter++;
             }
 
             return -1;
         }
+
+        public bool Contains(T value) => IndexOf(value) != -1;
 
         private bool IsEmpty()
         {
@@ -72,11 +74,4 @@ namespace LinearDataStructure.LinkedList
             }
         }
     }
-
-
-    /*
-     * 1. Как должен выглядить линкд лист класс?
-     * 2. Куда сохранять элементы в этом классе?
-     * 3.
-     */
 }
